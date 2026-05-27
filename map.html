@@ -37,6 +37,12 @@
       maxZoom: 19,
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
+
+    map.on('click', function (e) {
+      const { lat, lng } = e.latlng;
+      const marker = L.marker([lat, lng]).addTo(map);
+      marker.openPopup();
+    });
   </script>
 </body>
 </html>
